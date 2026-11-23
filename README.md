@@ -8,6 +8,8 @@ It talks to the keyboard MSI Center calls **26 Zone** (USB product id `0DB0:1605
 
 The USB id is a product id, shared by that keyboard model. It is not a serial number.
 
+The program does not record which key was pressed. A key only resets a timer. It does not use the network, and the only files it touches are `config.json` and `kbd_idle.log` in its own folder. The only hardware it changes is this keyboard's brightness.
+
 ## How it is wired
 
 ![Path from a keypress to the keyboard backlight](docs/architecture.svg)
