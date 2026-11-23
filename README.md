@@ -8,6 +8,14 @@ It talks to the keyboard MSI Center calls **26 Zone** (USB product id `0DB0:1605
 
 The USB id is a product id, shared by that keyboard model. It is not a serial number.
 
+## How it is wired
+
+![Path from a keypress to the keyboard backlight](docs/architecture.svg)
+
+A keypress only resets a timer. When the keyboard has been quiet for `timeout_seconds`, the program reads the current brightness, stores it, and writes level 0. The next key writes that stored level back. Color, zones, and the Mystic Light effect are never written.
+
+From `evening_from_hour` until `evening_until_hour`, a fresh start uses `evening_level` and puts it back if startup software turns the backlight off. That restore stops at the first key. After that, the idle timer is in charge.
+
 ## What you need
 
 - Windows 10 or 11
@@ -102,4 +110,14 @@ Set `evening_from_hour` and `evening_until_hour` to the same hour to skip the di
 
 ## Words people search for
 
-MSI keyboard backlight timeout, keyboard lights stay on, keyboard light not turning off, Mystic Light no auto off, turn off keyboard backlight when idle, MSI Center keyboard light, 26 zone RGB keyboard, LEDKeeper brightness, Vector A18 HX keyboard backlight.
+These are the phrases people actually type when MSI Center has no idle timer:
+
+- MSI keyboard backlight timeout
+- keyboard backlight turns off by itself
+- keyboard lights stay on
+- Mystic Light no auto off
+- turn off keyboard backlight when idle
+- MSI Center always on or auto turn off in 10 sec
+- 26 zone RGB keyboard brightness
+- LEDKeeper brightness level
+- keyboard light on at startup then turns off
