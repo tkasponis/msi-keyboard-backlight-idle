@@ -1,0 +1,6 @@
+{
+  "timeout_seconds": 120,
+  "evening_from_hour": 18,
+  "evening_until_hour": 8,
+  "evening_level": 1
+}

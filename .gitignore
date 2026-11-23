@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+kbd_idle.log
+*.log
+.venv/
+venv/
